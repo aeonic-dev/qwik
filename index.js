@@ -22,6 +22,14 @@ class qwik {
     // querySelector
     return document.querySelector(s);
   }
+  static getAll(s) {
+    // querySelectorAll
+    return document.querySelectorAll(s);
+  }
+  static forAll(s,f) {
+    // querySelectorAll.forEach
+    document.querySelectorAll(s).forEach(f);
+  }
 }
 
 var q = qwik; // shorthand
