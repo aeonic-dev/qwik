@@ -30,6 +30,11 @@ class qwik {
     // querySelectorAll.forEach
     document.querySelectorAll(s).forEach(f);
   }
+  static eLambda(s) {
+    // s is a one-input function
+    // returns a lambda that runs s on the event target, to be used in event handlers
+    return e => s(e.target);
+  }
 }
 
 var q = qwik; // shorthand
