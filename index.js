@@ -188,3 +188,6 @@ Element.prototype.hasClass = function(s) {
   // check if element has class
   return this.classList.contains(s);
 }
+Element.prototype.toggleClass = function(s) {
+  return this.hasClass(s) ? thiss.delClass(s) : this.addClass(s);
+}
