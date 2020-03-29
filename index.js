@@ -189,5 +189,5 @@ Element.prototype.hasClass = function(s) {
   return this.classList.contains(s);
 }
 Element.prototype.toggleClass = function(s) {
-  return this.hasClass(s) ? thiss.delClass(s) : this.addClass(s);
+  return this.hasClass(s) ? this.delClass(s) : this.addClass(s);
 }
