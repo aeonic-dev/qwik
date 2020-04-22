@@ -70,86 +70,6 @@ qwik.w = class {
   }
 }
 
-qwik.c =  class {
-  // CONSOLE INTERACTION
-  static log(s) {
-    // console log
-    console.log(s);
-  }
-  static dir(s) {
-    // console log - json format
-    console.dir(s);
-  }
-  static xml(s){
-    // conole log - xml/html format
-    console.dirxml(s);
-  }
-  static warn(s) {
-    // console warn
-    console.warn(s);
-  }
-  static error(s) {
-    // console error
-    console.error(s);
-  }
-  static clear() {
-    // clears console
-    console.clear();
-  }
-  static tStart(s) {
-    // starts timing console
-    console.time(s);
-  }
-  static tEnd(s) {
-    // ends timing console
-    console.timeEnd(s);
-  }
-  static tLog(s){
-    // logs value timer to console
-    console.timeLog(s);
-  }
-  static table(s) {
-    // console table
-    console.table(s);
-  }
-  static cStart(s) {
-    // starts new console count
-    console.count(s);
-  }
-  static cReset(s) {
-    // resets console count of a given label
-    console.countReset(s);
-  }
-  static gStart(s) {
-    // starts console group
-    console.group(s);
-  }
-  static gCollapsed(s) {
-    // creates console group collapsed
-    console.groupCollapsed(s);
-  }
-  static gEnd(s) {
-    // ends console group
-    console.groupEnd(s);
-  }
-  static debug(s) {
-    // outputs a message to console with log level "debug"
-    console.debug(s);
-  }
-  static pStart(s){
-    // starts browsers profiler
-    console.profile(s);
-  }
-  static pEnd(s){
-    //stops profiler
-    console.profileEnd();
-  }
-  static trace(s){
-    // outputs stack trace
-    console.trace(s);
-  }
-}
-
 // OVERRIDES
 
 Element.prototype.html = function(s) {
@@ -191,3 +111,92 @@ Element.prototype.hasClass = function(s) {
 Element.prototype.toggleClass = function(s) {
   return this.hasClass(s) ? this.delClass(s) : this.addClass(s);
 }
+
+// CONSOLE
+
+qwik.c =  class {}
+
+qwik.c.log = function() {
+  // console log
+  return Function.prototype.bind.call(console.log, console);
+}();
+qwik.c.dir = function() {
+  // console log - json format
+  return Function.prototype.bind.call(console.dir, console);
+}();
+qwik.c.xml = function() {
+  // console log - xml format
+  return Function.prototype.bind.call(console.dirxml, console);
+}();
+qwik.c.warn = function() {
+  // console warn
+  return Function.prototype.bind.call(console.warn, console);
+}();
+qwik.c.err = function() {
+  // console error
+  return Function.prototype.bind.call(console.error, console);
+}();
+qwik.c.clear = function() {
+  // clears console
+  return Function.prototype.bind.call(console.clear, console);
+}();
+qwik.c.tStart = function() {
+  // starts timing console
+  return Function.prototype.bind.call(console.time, console);
+}();
+qwik.c.tEnd = function() {
+  // ends timing console
+  return Function.prototype.bind.call(console.timeEnd, console);
+}();
+qwik.c.tLog = function() {
+  // logs value of a timer to console
+  return Function.prototype.bind.call(console.timeLog, console);
+}();
+qwik.c.table = function() {
+  // console table - better way to represent arrays/json
+  return Function.prototype.bind.call(console.table, console);
+}();
+qwik.c.count = function() {
+  // starts a new console count
+  return Function.prototype.bind.call(console.count, console);
+}();
+qwik.c.cReset = function() {
+  // resets a console count
+  return Function.prototype.bind.call(console.countReset, console);
+}();
+qwik.c.gStart = function() {
+  // starts console group
+  return Function.prototype.bind.call(console.group, console);
+}();
+qwik.c.gCollapsed = function() {
+  // starts collapsed console group
+  return Function.prototype.bind.call(console.groupCollapsed, console);
+}();
+qwik.c.gEnd = function() {
+  // ends console group
+  return Function.prototype.bind.call(console.groupEnd, console);
+}();
+qwik.c.debug = function() {
+  // outputs a message to console with log level "debug"
+  return Function.prototype.bind.call(console.debug, console);
+}();
+qwik.c.pStart = function() {
+  // starts browser profiler
+  return Function.prototype.bind.call(console.profile, console);
+}();
+qwik.c.pEnd = function() {
+  // ends browser profiler
+  return Function.prototype.bind.call(console.profileEnd, console);
+}();
+qwik.c.trace = function() {
+  // outputs stack trace
+  return Function.prototype.bind.call(console.trace, console);
+}();
+qwik.c.assert = function() {
+  // if assertion (first param) is false, logs second param as an error
+  return Function.prototype.bind.call(console.assert, console);
+}();
+qwik.c.tStamp = function() {
+  // labels time on timer
+  return Function.prototype.bind.call(console.timeStamp, console);
+}();
